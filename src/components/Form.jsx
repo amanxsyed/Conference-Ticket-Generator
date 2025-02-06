@@ -3,7 +3,7 @@ import uploadIcon from '../assets/images/icon-upload.svg'
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
-const MAX_SIZE = 500 * 1024 // 500 KB
+const MAX_SIZE = 2 * 1024 * 1024; // 2MB in bytes
 
 
 
@@ -47,18 +47,18 @@ const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
     }
     return (
         <div className="p-4 max-w-4xl mx-auto">
-            <h1 tabIndex="0" className="text-center text-2xl font-extrabold text-gray-900 mb-4">
+            <h1 tabIndex="0" className="text-center text-2xl font-extrabold text-white mb-4">
                 Your Journey to Coding Conf 2025 Starts Here!
             </h1>
-            <p tabIndex="0" className="text-center text-gray-500 mb-4">
+            <p tabIndex="0" className="text-center text-white mb-4">
                 Secure your spot at next year&apos;s biggest coding conference.
             </p>
 
             <form onSubmit={handleForm} aria-labelledby="form-title" className="flex flex-col max-w-2xl mx-auto gap-6">
-                <label htmlFor="avatar" className="font-semibold">Upload Avatar</label>
+                <label htmlFor="avatar" className="font-semibold text-white">Upload Avatar</label>
                 <div
                     {...getRootProps()}
-                    className="flex justify-center items-center w-full h-48 border-2 border-dashed border-gray-500 rounded-lg bg-gray-100 text-center cursor-pointer"
+                    className="flex justify-center items-center w-full h-48 border-2  border-gray-500 rounded-lg text-center cursor-pointer "
                     role="button"
                     aria-label="Upload your avatar. Drag and drop or click to upload."
                     tabIndex="0"
@@ -93,8 +93,8 @@ const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
                         </div>
                     ) : (
                         <div>
-                            <div className="flex justify-center items-center">
-                                <img src={uploadIcon} alt="Upload icon" className="w-12 h-12" />
+                            <div className="flex justify-center items-center ">
+                                <img src={uploadIcon} alt="Upload icon" className="w-12 h-12 " />
                             </div>
                             <p className="text-gray-500">Drag & drop, or click to upload</p>
                         </div>
@@ -103,11 +103,11 @@ const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
                 {uploadError ? (
                     <p className="text-orange-500 text-sm" role="alert">File too large. Please upload a photo under 500KB.</p>
                 ) : (
-                    <p className="text-gray-500 text-sm">Upload your photo (JPG or PNG, max size: 500KB).</p>
+                    <p className="text-gray-500 text-sm">Upload your photo (JPG or PNG, max size: 2MB).</p>
                 )}
 
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="name" className="font-semibold">Full Name</label>
+                    <label htmlFor="name" className="font-semibold text-white">Full Name</label>
                     <input
                         type="text"
                         id="name"
@@ -116,12 +116,13 @@ const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
                         autoComplete="off"
                         required
                         aria-required="true"
-                        className="p-3 border border-gray-500 rounded bg-gray-100 text-gray-900"
+                        className="p-2.5 border border-gray-500 rounded bg-gray-700 bg-opacity-50 text-gray-100 placeholder-gray-300"
+
                     />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="email" className="font-semibold">Email Address</label>
+                    <label htmlFor="email" className="font-semibold text-white">Email Address</label>
                     <input
                         type="email"
                         id="email"
@@ -131,13 +132,19 @@ const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
                         required
                         aria-required="true"
                         aria-describedby="email-desc"
-                        className="p-3 border border-gray-500 rounded bg-gray-100 text-gray-900"
+                        className="p-2.5 border border-gray-500 rounded bg-gray-700 bg-opacity-50 text-gray-100 placeholder-gray-300"
+                        onInvalid={(e) => {
+                            e.target.setCustomValidity("Please enter a valid email (e.g., example@domain.com)");
+                        }}
+                        onInput={(e) => {
+                            e.target.setCustomValidity("");
+                        }}
                     />
-                    <p id="email-desc" className="text-sm text-gray-500">Please enter a valid email address</p>
+                    {/* <p id="email-desc" className="text-sm text-gray-500">Please enter a valid email address</p> */}
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="github" className="font-semibold">Github Username</label>
+                    <label htmlFor="github" className="font-semibold text-white font-">Github Username</label>
                     <input
                         type="text"
                         id="github"
@@ -146,14 +153,14 @@ const Form = ({ setAvatarImage, setEmail, setUsername, setGithubUsername }) => {
                         autoComplete="off"
                         required
                         aria-required="true"
-                        className="p-3 border border-gray-500 rounded bg-gray-100 text-gray-900"
+                        className="p-2.5 border border-gray-500 rounded bg-gray-700 bg-opacity-50 text-gray-100 placeholder-gray-300"
                     />
                 </div>
 
                 <input
                     type="submit"
                     value="Generate My Ticket"
-                    className="py-3 px-6 bg-orange-500 text-gray-900 font-semibold rounded-lg cursor-pointer hover:bg-orange-600"
+                    className="py-3 px-6 bg-orange-500 text-white font-semibold rounded-lg cursor-pointer hover:bg-orange-700"
                     aria-label="Generate your ticket"
                 />
             </form>

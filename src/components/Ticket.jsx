@@ -23,11 +23,11 @@ const Ticket = ({ avatarImage, githubUsername, username, email }) => {
 
     return (
         <div className='max-w-3xl mx-auto p-4 flex flex-col items-center'>
-            <h1 className='text-center text-2xl font-extrabold text-gray-900 mb-4'>
+            <h1 className='text-center text-2xl font-extrabold text-gray-200 mb-4'>
                 Congrats, <span className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent'>{username}</span><br />
                 Your ticket is ready.
             </h1>
-            <p className='text-center text-gray-500 mb-4'>
+            <p className='text-center text-gray-200 mb-4'>
                 We&apos;ve emailed your ticket to<br />
                 <span className='text-orange-500'>{email}</span> and will send updates in<br />
                 the run-up to the event.
@@ -45,7 +45,7 @@ const Ticket = ({ avatarImage, githubUsername, username, email }) => {
 
                 <div className='absolute left-5 top-5'>
                     <img src={logo} alt="Event logo" className='w-16' />
-                    <p className='ml-12 text-sm text-gray-500'>Jan 31, 2025 / Austin, TX</p>
+                    <p className='ml-12 text-sm text-gray-500'>April 13, 2025 / Lahore, PK</p>
                 </div>
 
                 <div className='absolute flex gap-4 bottom-10 left-5'>
@@ -60,7 +60,7 @@ const Ticket = ({ avatarImage, githubUsername, username, email }) => {
                         <p className='text-gray-900'>{username}</p>
                         <div className='flex items-center gap-2 mt-1'>
                             <img src={githubImage} alt="GitHub icon" className='w-6 h-6' />
-                            <span className='text-sm text-gray-500'>@{githubUsername}</span>
+                            <span className='text-sm text-gray-400'>@{githubUsername}</span>
                         </div>
                     </div>
                 </div>

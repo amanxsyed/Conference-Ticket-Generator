@@ -1,10 +1,10 @@
-import React from 'react'
+import Background from "./components/Background"
 
 const App = () => {
   return (
-    <>
-      <h1>Hi-Syed Aman this side</h1>
-    </>
+    <div>
+      <Background />
+    </div>
   )
 }
 
